@@ -3,30 +3,19 @@ package langreg
 import (
 	"errors"
 	"fmt"
-	"strings"
 )
-
-type language struct {
-	nameEN  string // English name
-	nameNat string // native name in native script
-}
 
 // LangCodeInfo returns the English and native language in it's script for a
 // given string, and an error if any.  If there are more than one official
 // names for the language (either English or native), they are separated by a
 // semi-colon (;)
-func LangCodeInfo(c string) (english, native string, err error) {
-
-	// trim leading and trailing whitespace
-	s := strings.TrimSpace(c)
+// Language codes should always be lowercase, and this is enforced.
+func LangCodeInfo(s string) (english, native string, err error) {
 
 	// codes have to be two characters long
 	if len(s) != 2 {
 		return "", "", errors.New("ISO 639-1 language codes must be 2 characters long")
 	}
-
-	// make lowercase
-	s = strings.ToLower(s)
 
 	switch s {
 	case "aa":
@@ -401,7 +390,7 @@ func LangCodeInfo(c string) (english, native string, err error) {
 	return "", "", fmt.Errorf("\"%s\" is not a valid ISO-639-1 language code", s)
 }
 
-// IsValidCode returns true if s is a valid ISO639-1 language code
+// IsValidLanguageCode returns true if s is a valid ISO 639-1 language code
 func IsValidLanguageCode(s string) bool {
 	_, _, err := LangCodeInfo(s)
 	if err != nil {
@@ -410,17 +399,17 @@ func IsValidLanguageCode(s string) bool {
 	return true
 }
 
-// EnglishName returns the English name(s) corresponding to the language code
+// LangEnglishName returns the English name(s) corresponding to the language code
 // s.  If there are multiple names, they are separated by a `;`.
-func EnglishName(s string) (string, error) {
+func LangEnglishName(s string) (string, error) {
 	en, _, err := LangCodeInfo(s)
 	return en, err
 }
 
-// NativeName returns the native name(s) corresponding to the language code s
+// LangNativeName returns the native name(s) corresponding to the language code s
 // in the native script(s).  If there are multiple names, they are separated
 // by a `;`.
-func NativeName(s string) (string, error) {
+func LangNativeName(s string) (string, error) {
 	_, nat, err := LangCodeInfo(s)
 	return nat, err
 }

@@ -5,30 +5,70 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
+type langTestInfo struct {
+	code            string
+	expectedEn      string
+	expectedNat     string
+	errExpected     bool
+	testDescription string
+}
+
+var langTests = []langTestInfo{
+	{"en", "English", "English", false, "code with ascii character set"},
+	{"EN", "", "", true, "code with uppercase ascii characters"},
+	{"iu", "Inuktitut", "ᐃᓄᒃᑎᑐᑦ", false, "code with non-ascii Unicode character set"},
+	{"  en ", "", "", true, "code with leading and trailng space"},
+	{"\nen ", "", "", true, "code with leading and trailing whitespace"},
+	{"zzz", "", "", true, "code that is too long"},
+	{"z", "", "", true, "code that is too short"},
+	{"zz", "", "", true, "code that is invalid"},
+	{"*z", "", "", true, "code with invalid characters"},
+	{"73", "", "", true, "code with numbers"},
+}
+
 func TestLanguageCodeInfo(t *testing.T) {
-	var tests = []struct {
-		code            string
-		expectedEn      string
-		expectedNat     string
-		errExpected     bool
-		testDescription string
-	}{
-		{"en", "English", "English", false, "code with ascii character set"},
-		{"EN", "English", "English", false, "code with uppercase ascii characters"},
-		{"iu", "Inuktitut", "ᐃᓄᒃᑎᑐᑦ", false, "code with non-ascii Unicode character set"},
-		{"  en ", "English", "English", false, "code with leading and trailng space"},
-		{"\nen ", "English", "English", false, "code with leading and trailing whitespace"},
-		{"zzz", "", "", true, "code that is too long"},
-		{"z", "", "", true, "code that is too short"},
-		{"zz", "", "", true, "code that is invalid"},
-		{"*z", "", "", true, "code with invalid characters"},
-		{"73", "", "", true, "code with numbers"},
-	}
-	for _, tt := range tests {
+	for _, tt := range langTests {
 		Convey("Given a "+tt.testDescription, t, func() {
 			actualEn, actualNat, actualErr := LangCodeInfo(tt.code)
 			So(actualEn, ShouldEqual, tt.expectedEn)
 			So(actualNat, ShouldEqual, tt.expectedNat)
+			if !tt.errExpected {
+				So(actualErr, ShouldBeNil)
+			} else {
+				So(actualErr, ShouldNotBeNil)
+			}
+		})
+	}
+}
+
+func TestIsLanguageCode(t *testing.T) {
+	for _, tt := range langTests {
+		Convey("Given a "+tt.testDescription, t, func() {
+			actualIsValid := IsValidLanguageCode(tt.code)
+			So(!actualIsValid, ShouldEqual, tt.errExpected)
+		})
+	}
+}
+
+func TestLangEnglishName(t *testing.T) {
+	for _, tt := range langTests {
+		Convey("Given a "+tt.testDescription, t, func() {
+			actualEnName, actualErr := LangEnglishName(tt.code)
+			So(actualEnName, ShouldEqual, tt.expectedEn)
+			if !tt.errExpected {
+				So(actualErr, ShouldBeNil)
+			} else {
+				So(actualErr, ShouldNotBeNil)
+			}
+		})
+	}
+}
+
+func TestLangNativeName(t *testing.T) {
+	for _, tt := range langTests {
+		Convey("Given a "+tt.testDescription, t, func() {
+			actualNatName, actualErr := LangNativeName(tt.code)
+			So(actualNatName, ShouldEqual, tt.expectedNat)
 			if !tt.errExpected {
 				So(actualErr, ShouldBeNil)
 			} else {

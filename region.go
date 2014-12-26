@@ -1,19 +1,16 @@
 package langreg
 
-import (
-	"errors"
-	"strings"
-)
+import "errors"
 
-func RegionCodeInfo(c string) (region, ccTLD string, err error) {
-	// trim leading and trailing whitespace
-	s := strings.TrimSpace(c)
+// RegionCodeInfo returns the English regional name, and ccTLD that
+// corresponds to the ISO 3166-1 alpha-2 region codes.
+// Region codes should always be uppercase, and this is enforced.
+// E.g. "US" is valid, but "us" is not.
+func RegionCodeInfo(s string) (region, ccTLD string, err error) {
 	// codes have to be two characters long
 	if len(s) != 2 {
 		return "", "", errors.New("ISO 3166-1 alpha-2 region codes must be 2 characters long")
 	}
-	// make uppercase
-	s = strings.ToUpper(s)
 	switch s {
 	case "AD":
 		return "Andorra", ".ad", nil
@@ -517,7 +514,7 @@ func RegionCodeInfo(c string) (region, ccTLD string, err error) {
 	return "", "", errors.New("\"%s\" is not a valid ISO 3166-1 alpha-2 region code")
 }
 
-// IsValidCode returns true if s is a valid ISO1366-1_alpa-2 language code.
+// IsValidRegionCode returns true if s is a valid ISO1366-1_alpa-2 region code.
 func IsValidRegionCode(s string) bool {
 	_, _, err := RegionCodeInfo(s)
 	if err != nil {
@@ -526,14 +523,14 @@ func IsValidRegionCode(s string) bool {
 	return true
 }
 
-// Name returns the name (in English) corresponding to the country code s.
-func Name(s string) (string, error) {
+// RegionName returns the English name of the ISO1366-1_alpa-2 region code s.
+func RegionName(s string) (string, error) {
 	name, _, err := RegionCodeInfo(s)
 	return name, err
 }
 
-// CCTLD returns the name ccTLD corresponding to the country code s.
-func CCTLD(s string) (string, error) {
+// RegionCCTLD returns the name ccTLD  of the ISO1366-1_alpa-2 region code s.
+func RegionCCTLD(s string) (string, error) {
 	_, ccTLD, err := RegionCodeInfo(s)
 	return ccTLD, err
 }
