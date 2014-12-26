@@ -69,9 +69,9 @@ The data used for the region codes and data has been scraped from Wikipedia's [I
 
 ## Design and Benchmarks
 
-This was designed primarily as a lightweight lookup table that would be called infrequently.  I tested various options for this, and narrowed it down to either a map or a switch statement.  The switch statement was a little slower at 67-90 ns/op vs the maps' 38-50 ns/op, but had no data to load into memory first, while the startup time for loading the map into memory was 48 µs (48k ns).
+This was designed primarily as a lightweight lookup table that would be called infrequently.  I tested various options for this, and narrowed it down to either a map or a switch statement.  The switch statement for a single lookup table was a little slower at 67-78 ns/op vs the maps' 38-50 ns/op, but had no data to load into memory first, while the startup time for loading the map into memory was 48 µs (48k ns).
 
-The worst case benchmarks on a MacBook Pro are:
+The worst case benchmarks results on a MacBook Pro are:
 ```
 BenchmarkIsValidLangRegCode		10000000	       158 ns/op
 
