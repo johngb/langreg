@@ -77,3 +77,39 @@ func TestLangNativeName(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkLangCodeInfo(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		_, _, err := LangCodeInfo("zu")
+		if err != nil {
+			b.Error(err.Error())
+		}
+	}
+}
+
+func BenchmarkIsValidLanguageCode(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		isValid := IsValidLanguageCode("zu")
+		if !isValid {
+			b.Error("invalid language code")
+		}
+	}
+}
+
+func BenchmarkLangEnglishName(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		_, err := LangEnglishName("zu")
+		if err != nil {
+			b.Error(err.Error())
+		}
+	}
+}
+
+func BenchmarkLangNativeName(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		_, err := LangEnglishName("zu")
+		if err != nil {
+			b.Error(err.Error())
+		}
+	}
+}

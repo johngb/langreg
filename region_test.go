@@ -61,3 +61,30 @@ func TestRegionName(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkRegionCodeInfo(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		_, err := RegionCodeInfo("ZW")
+		if err != nil {
+			b.Error(err.Error())
+		}
+	}
+}
+
+func BenchmarkIsValidRegionCode(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		isValid := IsValidRegionCode("ZW")
+		if !isValid {
+			b.Error("invalid region code")
+		}
+	}
+}
+
+func BenchmarkRegionName(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		_, err := RegionName("ZW")
+		if err != nil {
+			b.Error(err.Error())
+		}
+	}
+}

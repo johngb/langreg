@@ -67,9 +67,23 @@ As this is intended for general use cases, rather than distinguishing between an
 
 The data used for the region codes and data has been scraped from Wikipedia's [ISO 3166-1 page](http://en.wikipedia.org/wiki/ISO_3166-1). I couldn't find any single download from ISO without paying for it or scraping a page per letter of the alphabet, so I stuck with Wikipedia - because lazy.
 
-## Design
+## Design and Benchmarks
 
-This was designed primarily as a lightweight lookup table that would be called infrequently.  I tested various options for this, and narrowed it down to either a map or a switch statement.  The switch statement was a little slower at 67-87 ns/op vs the maps' 38-50 ns/op, but had no data to load into memory first, while the startup time for loading the map into memory was 48 µs (48k ns).
+This was designed primarily as a lightweight lookup table that would be called infrequently.  I tested various options for this, and narrowed it down to either a map or a switch statement.  The switch statement was a little slower at 67-90 ns/op vs the maps' 38-50 ns/op, but had no data to load into memory first, while the startup time for loading the map into memory was 48 µs (48k ns).
+
+The worst case benchmarks on a MacBook Pro are:
+```
+BenchmarkIsValidLangRegCode		10000000	       158 ns/op
+
+BenchmarkLangCodeInfo			20000000	        75.2 ns/op
+BenchmarkIsValidLanguageCode	20000000	        76.6 ns/op
+BenchmarkLangEnglishName		20000000	        77.9 ns/op
+BenchmarkLangNativeName			20000000	        77.2 ns/op
+
+BenchmarkRegionCodeInfo			20000000	        74.6 ns/op
+BenchmarkIsValidRegionCode		20000000	        76.1 ns/op
+BenchmarkRegionName				20000000	        77.0 ns/op
+```
 
 ## Stability
 

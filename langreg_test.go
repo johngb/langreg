@@ -30,3 +30,12 @@ func TestIsValidLangRegCode(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkIsValidLangRegCode(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		isValid := IsValidLangRegCode("zu_ZW")
+		if !isValid {
+			b.Error("invalid language code")
+		}
+	}
+}
