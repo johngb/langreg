@@ -6,517 +6,517 @@ import "errors"
 // corresponds to the ISO 3166-1 alpha-2 region codes.
 // Region codes should always be uppercase, and this is enforced.
 // E.g. "US" is valid, but "us" is not.
-func RegionCodeInfo(s string) (region, ccTLD string, err error) {
+func RegionCodeInfo(s string) (region string, err error) {
 	// codes have to be two characters long
 	if len(s) != 2 {
-		return "", "", errors.New("ISO 3166-1 alpha-2 region codes must be 2 characters long")
+		return "", errors.New("ISO 3166-1 alpha-2 region codes must be 2 characters long")
 	}
 	switch s {
 	case "AD":
-		return "Andorra", ".ad", nil
+		return "Andorra", nil
 	case "AE":
-		return "United Arab Emirates", ".ae", nil
+		return "United Arab Emirates", nil
 	case "AF":
-		return "Afghanistan", ".af", nil
+		return "Afghanistan", nil
 	case "AG":
-		return "Antigua and Barbuda", ".ag", nil
+		return "Antigua and Barbuda", nil
 	case "AI":
-		return "Anguilla", ".ai", nil
+		return "Anguilla", nil
 	case "AL":
-		return "Albania", ".al", nil
+		return "Albania", nil
 	case "AM":
-		return "Armenia", ".am", nil
+		return "Armenia", nil
 	case "AO":
-		return "Angola", ".ao", nil
+		return "Angola", nil
 	case "AQ":
-		return "Antarctica", ".aq", nil
+		return "Antarctica", nil
 	case "AR":
-		return "Argentina", ".ar", nil
+		return "Argentina", nil
 	case "AS":
-		return "American Samoa", ".as", nil
+		return "American Samoa", nil
 	case "AT":
-		return "Austria", ".at", nil
+		return "Austria", nil
 	case "AU":
-		return "Australia", ".au", nil
+		return "Australia", nil
 	case "AW":
-		return "Aruba", ".aw", nil
+		return "Aruba", nil
 	case "AX":
-		return "Aland Islands !Åland Islands", ".ax", nil
+		return "Aland Islands !Åland Islands", nil
 	case "AZ":
-		return "Azerbaijan", ".az", nil
+		return "Azerbaijan", nil
 	case "BA":
-		return "Bosnia and Herzegovina", ".ba", nil
+		return "Bosnia and Herzegovina", nil
 	case "BB":
-		return "Barbados", ".bb", nil
+		return "Barbados", nil
 	case "BD":
-		return "Bangladesh", ".bd", nil
+		return "Bangladesh", nil
 	case "BE":
-		return "Belgium", ".be", nil
+		return "Belgium", nil
 	case "BF":
-		return "Burkina Faso", ".bf", nil
+		return "Burkina Faso", nil
 	case "BG":
-		return "Bulgaria", ".bg", nil
+		return "Bulgaria", nil
 	case "BH":
-		return "Bahrain", ".bh", nil
+		return "Bahrain", nil
 	case "BI":
-		return "Burundi", ".bi", nil
+		return "Burundi", nil
 	case "BJ":
-		return "Benin", ".bj", nil
+		return "Benin", nil
 	case "BL":
-		return "Saint Barthélemy", ".bl", nil
+		return "Saint Barthélemy", nil
 	case "BM":
-		return "Bermuda", ".bm", nil
+		return "Bermuda", nil
 	case "BN":
-		return "Brunei Darussalam", ".bn", nil
+		return "Brunei Darussalam", nil
 	case "BO":
-		return "Bolivia, Plurinational State of", ".bo", nil
+		return "Bolivia, Plurinational State of", nil
 	case "BQ":
-		return "Bonaire, Sint Eustatius and Saba", ".bq", nil
+		return "Bonaire, Sint Eustatius and Saba", nil
 	case "BR":
-		return "Brazil", ".br", nil
+		return "Brazil", nil
 	case "BS":
-		return "Bahamas", ".bs", nil
+		return "Bahamas", nil
 	case "BT":
-		return "Bhutan", ".bt", nil
+		return "Bhutan", nil
 	case "BV":
-		return "Bouvet Island", ".bv", nil
+		return "Bouvet Island", nil
 	case "BW":
-		return "Botswana", ".bw", nil
+		return "Botswana", nil
 	case "BY":
-		return "Belarus", ".by", nil
+		return "Belarus", nil
 	case "BZ":
-		return "Belize", ".bz", nil
+		return "Belize", nil
 	case "CA":
-		return "Canada", ".ca", nil
+		return "Canada", nil
 	case "CC":
-		return "Cocos (Keeling) Islands", ".cc", nil
+		return "Cocos (Keeling) Islands", nil
 	case "CD":
-		return "Congo, the Democratic Republic of the", ".cd", nil
+		return "Congo, the Democratic Republic of the", nil
 	case "CF":
-		return "Central African Republic", ".cf", nil
+		return "Central African Republic", nil
 	case "CG":
-		return "Congo", ".cg", nil
+		return "Congo", nil
 	case "CH":
-		return "Switzerland", ".ch", nil
+		return "Switzerland", nil
 	case "CI":
-		return "Cote dIvoire !Côte dIvoire", ".ci", nil
+		return "Cote dIvoire !Côte dIvoire", nil
 	case "CK":
-		return "Cook Islands", ".ck", nil
+		return "Cook Islands", nil
 	case "CL":
-		return "Chile", ".cl", nil
+		return "Chile", nil
 	case "CM":
-		return "Cameroon", ".cm", nil
+		return "Cameroon", nil
 	case "CN":
-		return "China", ".cn", nil
+		return "China", nil
 	case "CO":
-		return "Colombia", ".co", nil
+		return "Colombia", nil
 	case "CR":
-		return "Costa Rica", ".cr", nil
+		return "Costa Rica", nil
 	case "CU":
-		return "Cuba", ".cu", nil
+		return "Cuba", nil
 	case "CV":
-		return "Cabo Verde", ".cv", nil
+		return "Cabo Verde", nil
 	case "CW":
-		return "Curaçao", ".cw", nil
+		return "Curaçao", nil
 	case "CX":
-		return "Christmas Island", ".cx", nil
+		return "Christmas Island", nil
 	case "CY":
-		return "Cyprus", ".cy", nil
+		return "Cyprus", nil
 	case "CZ":
-		return "Czech Republic", ".cz", nil
+		return "Czech Republic", nil
 	case "DE":
-		return "Germany", ".de", nil
+		return "Germany", nil
 	case "DJ":
-		return "Djibouti", ".dj", nil
+		return "Djibouti", nil
 	case "DK":
-		return "Denmark", ".dk", nil
+		return "Denmark", nil
 	case "DM":
-		return "Dominica", ".dm", nil
+		return "Dominica", nil
 	case "DO":
-		return "Dominican Republic", ".do", nil
+		return "Dominican Republic", nil
 	case "DZ":
-		return "Algeria", ".dz", nil
+		return "Algeria", nil
 	case "EC":
-		return "Ecuador", ".ec", nil
+		return "Ecuador", nil
 	case "EE":
-		return "Estonia", ".ee", nil
+		return "Estonia", nil
 	case "EG":
-		return "Egypt", ".eg", nil
+		return "Egypt", nil
 	case "EH":
-		return "Western Sahara", ".eh", nil
+		return "Western Sahara", nil
 	case "ER":
-		return "Eritrea", ".er", nil
+		return "Eritrea", nil
 	case "ES":
-		return "Spain", ".es", nil
+		return "Spain", nil
 	case "ET":
-		return "Ethiopia", ".et", nil
+		return "Ethiopia", nil
 	case "FI":
-		return "Finland", ".fi", nil
+		return "Finland", nil
 	case "FJ":
-		return "Fiji", ".fj", nil
+		return "Fiji", nil
 	case "FK":
-		return "Falkland Islands (Malvinas)", ".fk", nil
+		return "Falkland Islands (Malvinas)", nil
 	case "FM":
-		return "Micronesia, Federated States of", ".fm", nil
+		return "Micronesia, Federated States of", nil
 	case "FO":
-		return "Faroe Islands", ".fo", nil
+		return "Faroe Islands", nil
 	case "FR":
-		return "France", ".fr", nil
+		return "France", nil
 	case "GA":
-		return "Gabon", ".ga", nil
+		return "Gabon", nil
 	case "GB":
-		return "United Kingdom", ".uk", nil
+		return "United Kingdom", nil
 	case "GD":
-		return "Grenada", ".gd", nil
+		return "Grenada", nil
 	case "GE":
-		return "Georgia", ".ge", nil
+		return "Georgia", nil
 	case "GF":
-		return "French Guiana", ".gf", nil
+		return "French Guiana", nil
 	case "GG":
-		return "Guernsey", ".gg", nil
+		return "Guernsey", nil
 	case "GH":
-		return "Ghana", ".gh", nil
+		return "Ghana", nil
 	case "GI":
-		return "Gibraltar", ".gi", nil
+		return "Gibraltar", nil
 	case "GL":
-		return "Greenland", ".gl", nil
+		return "Greenland", nil
 	case "GM":
-		return "Gambia", ".gm", nil
+		return "Gambia", nil
 	case "GN":
-		return "Guinea", ".gn", nil
+		return "Guinea", nil
 	case "GP":
-		return "Guadeloupe", ".gp", nil
+		return "Guadeloupe", nil
 	case "GQ":
-		return "Equatorial Guinea", ".gq", nil
+		return "Equatorial Guinea", nil
 	case "GR":
-		return "Greece", ".gr", nil
+		return "Greece", nil
 	case "GS":
-		return "South Georgia and the South Sandwich Islands", ".gs", nil
+		return "South Georgia and the South Sandwich Islands", nil
 	case "GT":
-		return "Guatemala", ".gt", nil
+		return "Guatemala", nil
 	case "GU":
-		return "Guam", ".gu", nil
+		return "Guam", nil
 	case "GW":
-		return "Guinea-Bissau", ".gw", nil
+		return "Guinea-Bissau", nil
 	case "GY":
-		return "Guyana", ".gy", nil
+		return "Guyana", nil
 	case "HK":
-		return "Hong Kong", ".hk", nil
+		return "Hong Kong", nil
 	case "HM":
-		return "Heard Island and McDonald Islands", ".hm", nil
+		return "Heard Island and McDonald Islands", nil
 	case "HN":
-		return "Honduras", ".hn", nil
+		return "Honduras", nil
 	case "HR":
-		return "Croatia", ".hr", nil
+		return "Croatia", nil
 	case "HT":
-		return "Haiti", ".ht", nil
+		return "Haiti", nil
 	case "HU":
-		return "Hungary", ".hu", nil
+		return "Hungary", nil
 	case "ID":
-		return "Indonesia", ".id", nil
+		return "Indonesia", nil
 	case "IE":
-		return "Ireland", ".ie", nil
+		return "Ireland", nil
 	case "IL":
-		return "Israel", ".il", nil
+		return "Israel", nil
 	case "IM":
-		return "Isle of Man", ".im", nil
+		return "Isle of Man", nil
 	case "IN":
-		return "India", ".in", nil
+		return "India", nil
 	case "IO":
-		return "British Indian Ocean Territory", ".io", nil
+		return "British Indian Ocean Territory", nil
 	case "IQ":
-		return "Iraq", ".iq", nil
+		return "Iraq", nil
 	case "IR":
-		return "Iran, Islamic Republic of", ".ir", nil
+		return "Iran, Islamic Republic of", nil
 	case "IS":
-		return "Iceland", ".is", nil
+		return "Iceland", nil
 	case "IT":
-		return "Italy", ".it", nil
+		return "Italy", nil
 	case "JE":
-		return "Jersey", ".je", nil
+		return "Jersey", nil
 	case "JM":
-		return "Jamaica", ".jm", nil
+		return "Jamaica", nil
 	case "JO":
-		return "Jordan", ".jo", nil
+		return "Jordan", nil
 	case "JP":
-		return "Japan", ".jp", nil
+		return "Japan", nil
 	case "KE":
-		return "Kenya", ".ke", nil
+		return "Kenya", nil
 	case "KG":
-		return "Kyrgyzstan", ".kg", nil
+		return "Kyrgyzstan", nil
 	case "KH":
-		return "Cambodia", ".kh", nil
+		return "Cambodia", nil
 	case "KI":
-		return "Kiribati", ".ki", nil
+		return "Kiribati", nil
 	case "KM":
-		return "Comoros", ".km", nil
+		return "Comoros", nil
 	case "KN":
-		return "Saint Kitts and Nevis", ".kn", nil
+		return "Saint Kitts and Nevis", nil
 	case "KP":
-		return "Korea, Democratic Peoples Republic of", ".kp", nil
+		return "Korea, Democratic Peoples Republic of", nil
 	case "KR":
-		return "Korea, Republic of", ".kr", nil
+		return "Korea, Republic of", nil
 	case "KW":
-		return "Kuwait", ".kw", nil
+		return "Kuwait", nil
 	case "KY":
-		return "Cayman Islands", ".ky", nil
+		return "Cayman Islands", nil
 	case "KZ":
-		return "Kazakhstan", ".kz", nil
+		return "Kazakhstan", nil
 	case "LA":
-		return "Lao Peoples Democratic Republic", ".la", nil
+		return "Lao Peoples Democratic Republic", nil
 	case "LB":
-		return "Lebanon", ".lb", nil
+		return "Lebanon", nil
 	case "LC":
-		return "Saint Lucia", ".lc", nil
+		return "Saint Lucia", nil
 	case "LI":
-		return "Liechtenstein", ".li", nil
+		return "Liechtenstein", nil
 	case "LK":
-		return "Sri Lanka", ".lk", nil
+		return "Sri Lanka", nil
 	case "LR":
-		return "Liberia", ".lr", nil
+		return "Liberia", nil
 	case "LS":
-		return "Lesotho", ".ls", nil
+		return "Lesotho", nil
 	case "LT":
-		return "Lithuania", ".lt", nil
+		return "Lithuania", nil
 	case "LU":
-		return "Luxembourg", ".lu", nil
+		return "Luxembourg", nil
 	case "LV":
-		return "Latvia", ".lv", nil
+		return "Latvia", nil
 	case "LY":
-		return "Libya", ".ly", nil
+		return "Libya", nil
 	case "MA":
-		return "Morocco", ".ma", nil
+		return "Morocco", nil
 	case "MC":
-		return "Monaco", ".mc", nil
+		return "Monaco", nil
 	case "MD":
-		return "Moldova, Republic of", ".md", nil
+		return "Moldova, Republic of", nil
 	case "ME":
-		return "Montenegro", ".me", nil
+		return "Montenegro", nil
 	case "MF":
-		return "Saint Martin (French part)", ".mf", nil
+		return "Saint Martin (French part)", nil
 	case "MG":
-		return "Madagascar", ".mg", nil
+		return "Madagascar", nil
 	case "MH":
-		return "Marshall Islands", ".mh", nil
+		return "Marshall Islands", nil
 	case "MK":
-		return "Macedonia, the former Yugoslav Republic of", ".mk", nil
+		return "Macedonia, the former Yugoslav Republic of", nil
 	case "ML":
-		return "Mali", ".ml", nil
+		return "Mali", nil
 	case "MM":
-		return "Myanmar", ".mm", nil
+		return "Myanmar", nil
 	case "MN":
-		return "Mongolia", ".mn", nil
+		return "Mongolia", nil
 	case "MO":
-		return "Macao", ".mo", nil
+		return "Macao", nil
 	case "MP":
-		return "Northern Mariana Islands", ".mp", nil
+		return "Northern Mariana Islands", nil
 	case "MQ":
-		return "Martinique", ".mq", nil
+		return "Martinique", nil
 	case "MR":
-		return "Mauritania", ".mr", nil
+		return "Mauritania", nil
 	case "MS":
-		return "Montserrat", ".ms", nil
+		return "Montserrat", nil
 	case "MT":
-		return "Malta", ".mt", nil
+		return "Malta", nil
 	case "MU":
-		return "Mauritius", ".mu", nil
+		return "Mauritius", nil
 	case "MV":
-		return "Maldives", ".mv", nil
+		return "Maldives", nil
 	case "MW":
-		return "Malawi", ".mw", nil
+		return "Malawi", nil
 	case "MX":
-		return "Mexico", ".mx", nil
+		return "Mexico", nil
 	case "MY":
-		return "Malaysia", ".my", nil
+		return "Malaysia", nil
 	case "MZ":
-		return "Mozambique", ".mz", nil
+		return "Mozambique", nil
 	case "NA":
-		return "Namibia", ".na", nil
+		return "Namibia", nil
 	case "NC":
-		return "New Caledonia", ".nc", nil
+		return "New Caledonia", nil
 	case "NE":
-		return "Niger", ".ne", nil
+		return "Niger", nil
 	case "NF":
-		return "Norfolk Island", ".nf", nil
+		return "Norfolk Island", nil
 	case "NG":
-		return "Nigeria", ".ng", nil
+		return "Nigeria", nil
 	case "NI":
-		return "Nicaragua", ".ni", nil
+		return "Nicaragua", nil
 	case "NL":
-		return "Netherlands", ".nl", nil
+		return "Netherlands", nil
 	case "NO":
-		return "Norway", ".no", nil
+		return "Norway", nil
 	case "NP":
-		return "Nepal", ".np", nil
+		return "Nepal", nil
 	case "NR":
-		return "Nauru", ".nr", nil
+		return "Nauru", nil
 	case "NU":
-		return "Niue", ".nu", nil
+		return "Niue", nil
 	case "NZ":
-		return "New Zealand", ".nz", nil
+		return "New Zealand", nil
 	case "OM":
-		return "Oman", ".om", nil
+		return "Oman", nil
 	case "PA":
-		return "Panama", ".pa", nil
+		return "Panama", nil
 	case "PE":
-		return "Peru", ".pe", nil
+		return "Peru", nil
 	case "PF":
-		return "French Polynesia", ".pf", nil
+		return "French Polynesia", nil
 	case "PG":
-		return "Papua New Guinea", ".pg", nil
+		return "Papua New Guinea", nil
 	case "PH":
-		return "Philippines", ".ph", nil
+		return "Philippines", nil
 	case "PK":
-		return "Pakistan", ".pk", nil
+		return "Pakistan", nil
 	case "PL":
-		return "Poland", ".pl", nil
+		return "Poland", nil
 	case "PM":
-		return "Saint Pierre and Miquelon", ".pm", nil
+		return "Saint Pierre and Miquelon", nil
 	case "PN":
-		return "Pitcairn", ".pn", nil
+		return "Pitcairn", nil
 	case "PR":
-		return "Puerto Rico", ".pr", nil
+		return "Puerto Rico", nil
 	case "PS":
-		return "Palestine, State of", ".ps", nil
+		return "Palestine, State of", nil
 	case "PT":
-		return "Portugal", ".pt", nil
+		return "Portugal", nil
 	case "PW":
-		return "Palau", ".pw", nil
+		return "Palau", nil
 	case "PY":
-		return "Paraguay", ".py", nil
+		return "Paraguay", nil
 	case "QA":
-		return "Qatar", ".qa", nil
+		return "Qatar", nil
 	case "RE":
-		return "Reunion !Réunion", ".re", nil
+		return "Reunion !Réunion", nil
 	case "RO":
-		return "Romania", ".ro", nil
+		return "Romania", nil
 	case "RS":
-		return "Serbia", ".rs", nil
+		return "Serbia", nil
 	case "RU":
-		return "Russian Federation", ".ru", nil
+		return "Russian Federation", nil
 	case "RW":
-		return "Rwanda", ".rw", nil
+		return "Rwanda", nil
 	case "SA":
-		return "Saudi Arabia", ".sa", nil
+		return "Saudi Arabia", nil
 	case "SB":
-		return "Solomon Islands", ".sb", nil
+		return "Solomon Islands", nil
 	case "SC":
-		return "Seychelles", ".sc", nil
+		return "Seychelles", nil
 	case "SD":
-		return "Sudan", ".sd", nil
+		return "Sudan", nil
 	case "SE":
-		return "Sweden", ".se", nil
+		return "Sweden", nil
 	case "SG":
-		return "Singapore", ".sg", nil
+		return "Singapore", nil
 	case "SH":
-		return "Saint Helena, Ascension and Tristan da Cunha", ".sh", nil
+		return "Saint Helena, Ascension and Tristan da Cunha", nil
 	case "SI":
-		return "Slovenia", ".si", nil
+		return "Slovenia", nil
 	case "SJ":
-		return "Svalbard and Jan Mayen", ".sj", nil
+		return "Svalbard and Jan Mayen", nil
 	case "SK":
-		return "Slovakia", ".sk", nil
+		return "Slovakia", nil
 	case "SL":
-		return "Sierra Leone", ".sl", nil
+		return "Sierra Leone", nil
 	case "SM":
-		return "San Marino", ".sm", nil
+		return "San Marino", nil
 	case "SN":
-		return "Senegal", ".sn", nil
+		return "Senegal", nil
 	case "SO":
-		return "Somalia", ".so", nil
+		return "Somalia", nil
 	case "SR":
-		return "Suriname", ".sr", nil
+		return "Suriname", nil
 	case "SS":
-		return "South Sudan", ".ss", nil
+		return "South Sudan", nil
 	case "ST":
-		return "Sao Tome and Principe", ".st", nil
+		return "Sao Tome and Principe", nil
 	case "SV":
-		return "El Salvador", ".sv", nil
+		return "El Salvador", nil
 	case "SX":
-		return "Sint Maarten (Dutch part)", ".sx", nil
+		return "Sint Maarten (Dutch part)", nil
 	case "SY":
-		return "Syrian Arab Republic", ".sy", nil
+		return "Syrian Arab Republic", nil
 	case "SZ":
-		return "Swaziland", ".sz", nil
+		return "Swaziland", nil
 	case "TC":
-		return "Turks and Caicos Islands", ".tc", nil
+		return "Turks and Caicos Islands", nil
 	case "TD":
-		return "Chad", ".td", nil
+		return "Chad", nil
 	case "TF":
-		return "French Southern Territories", ".tf", nil
+		return "French Southern Territories", nil
 	case "TG":
-		return "Togo", ".tg", nil
+		return "Togo", nil
 	case "TH":
-		return "Thailand", ".th", nil
+		return "Thailand", nil
 	case "TJ":
-		return "Tajikistan", ".tj", nil
+		return "Tajikistan", nil
 	case "TK":
-		return "Tokelau", ".tk", nil
+		return "Tokelau", nil
 	case "TL":
-		return "Timor-Leste", ".tl", nil
+		return "Timor-Leste", nil
 	case "TM":
-		return "Turkmenistan", ".tm", nil
+		return "Turkmenistan", nil
 	case "TN":
-		return "Tunisia", ".tn", nil
+		return "Tunisia", nil
 	case "TO":
-		return "Tonga", ".to", nil
+		return "Tonga", nil
 	case "TR":
-		return "Turkey", ".tr", nil
+		return "Turkey", nil
 	case "TT":
-		return "Trinidad and Tobago", ".tt", nil
+		return "Trinidad and Tobago", nil
 	case "TV":
-		return "Tuvalu", ".tv", nil
+		return "Tuvalu", nil
 	case "TW":
-		return "Taiwan, Province of China", ".tw", nil
+		return "Taiwan, Province of China", nil
 	case "TZ":
-		return "Tanzania, United Republic of", ".tz", nil
+		return "Tanzania, United Republic of", nil
 	case "UA":
-		return "Ukraine", ".ua", nil
+		return "Ukraine", nil
 	case "UG":
-		return "Uganda", ".ug", nil
+		return "Uganda", nil
 	case "UM":
-		return "United States Minor Outlying Islands", ".um", nil
+		return "United States Minor Outlying Islands", nil
 	case "US":
-		return "United States", ".us", nil
+		return "United States", nil
 	case "UY":
-		return "Uruguay", ".uy", nil
+		return "Uruguay", nil
 	case "UZ":
-		return "Uzbekistan", ".uz", nil
+		return "Uzbekistan", nil
 	case "VA":
-		return "Holy See (Vatican City State)", ".va", nil
+		return "Holy See (Vatican City State)", nil
 	case "VC":
-		return "Saint Vincent and the Grenadines", ".vc", nil
+		return "Saint Vincent and the Grenadines", nil
 	case "VE":
-		return "Venezuela, Bolivarian Republic of", ".ve", nil
+		return "Venezuela, Bolivarian Republic of", nil
 	case "VG":
-		return "Virgin Islands, British", ".vg", nil
+		return "Virgin Islands, British", nil
 	case "VI":
-		return "Virgin Islands, U.S.", ".vi", nil
+		return "Virgin Islands, U.S.", nil
 	case "VN":
-		return "Viet Nam", ".vn", nil
+		return "Viet Nam", nil
 	case "VU":
-		return "Vanuatu", ".vu", nil
+		return "Vanuatu", nil
 	case "WF":
-		return "Wallis and Futuna", ".wf", nil
+		return "Wallis and Futuna", nil
 	case "WS":
-		return "Samoa", ".ws", nil
+		return "Samoa", nil
 	case "YE":
-		return "Yemen", ".ye", nil
+		return "Yemen", nil
 	case "YT":
-		return "Mayotte", ".yt", nil
+		return "Mayotte", nil
 	case "ZA":
-		return "South Africa", ".za", nil
+		return "South Africa", nil
 	case "ZM":
-		return "Zambia", ".zm", nil
+		return "Zambia", nil
 	case "ZW":
-		return "Zimbabwe", ".zw", nil
+		return "Zimbabwe", nil
 	}
-	return "", "", errors.New("\"%s\" is not a valid ISO 3166-1 alpha-2 region code")
+	return "", errors.New("\"%s\" is not a valid ISO 3166-1 alpha-2 region code")
 }
 
 // IsValidRegionCode returns true if s is a valid ISO1366-1_alpa-2 region code.
 func IsValidRegionCode(s string) bool {
-	_, _, err := RegionCodeInfo(s)
+	_, err := RegionCodeInfo(s)
 	if err != nil {
 		return false
 	}
@@ -525,12 +525,6 @@ func IsValidRegionCode(s string) bool {
 
 // RegionName returns the English name of the ISO1366-1_alpa-2 region code s.
 func RegionName(s string) (string, error) {
-	name, _, err := RegionCodeInfo(s)
+	name, err := RegionCodeInfo(s)
 	return name, err
-}
-
-// RegionCCTLD returns the name ccTLD  of the ISO1366-1_alpa-2 region code s.
-func RegionCCTLD(s string) (string, error) {
-	_, ccTLD, err := RegionCodeInfo(s)
-	return ccTLD, err
 }
