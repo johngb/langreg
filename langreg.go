@@ -1,6 +1,6 @@
 package langreg
 
-// IsValidLangReg returns true if the string s is a valid ISO 639-1 language
+// IsValidLangRegCode returns true if the string s is a valid ISO 639-1 language
 // and ISO1366-1_alpa-2 region code separated by an underscore.  E.g. "en_US".
 func IsValidLangRegCode(s string) bool {
 
