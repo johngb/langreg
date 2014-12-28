@@ -1,4 +1,4 @@
-// langreg is a library for validating ISO 639-1 language
+// Package langreg is a library for validating ISO 639-1 language
 // and ISO1366-1_alpa-2 region codes.
 package langreg
 
