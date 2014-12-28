@@ -1,4 +1,4 @@
-//go:generate python language_codes.py
+//go:generate go run datagen/language/genlang.go
 
 package langreg
 

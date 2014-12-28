@@ -1,3 +1,5 @@
+// langreg is a library for validating ISO 639-1 language
+// and ISO1366-1_alpa-2 region codes.
 package langreg
 
 // IsValidLangRegCode returns true if the string s is a valid ISO 639-1 language
@@ -9,7 +11,7 @@ func IsValidLangRegCode(s string) bool {
 		return false
 	}
 
-	// the middle (third) character must be a '_' uint8 char
+	// the middle (third) character must be a '_' char
 	if s[2] != '_' {
 		return false
 	}

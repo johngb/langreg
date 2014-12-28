@@ -1,4 +1,4 @@
-//go:generate python region_codes.py
+//go:generate go run datagen/region/genreg.go
 
 package langreg
 
