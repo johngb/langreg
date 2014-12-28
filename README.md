@@ -71,18 +71,20 @@ The data used for the region codes and data has been scraped from Wikipedia's [I
 
 This was designed primarily as a lightweight lookup table that would be called infrequently.  I tested various options for this, and narrowed it down to either a map or a switch statement.  The switch statement for a single lookup table was a little slower at 67-78 ns/op vs the maps' 38-50 ns/op, but had no data to load into memory first, while the startup time for loading the map into memory was 48 µs (48k ns).
 
+Update: with some suggestions from @attilaolah to use nested switch statements, the switch version's performance is now significantly faster than even a pre-loaded map.
+
 The worst case benchmarks results on a MacBook Pro are:
 ```
-BenchmarkIsValidLangRegCode		10000000	       158 ns/op
+BenchmarkIsValidLangRegCode		100000000	        23.2 ns/op
 
-BenchmarkLangCodeInfo			20000000	        75.2 ns/op
-BenchmarkIsValidLanguageCode	20000000	        76.6 ns/op
-BenchmarkLangEnglishName		20000000	        77.9 ns/op
-BenchmarkLangNativeName			20000000	        77.2 ns/op
+BenchmarkLangCodeInfo			100000000	        10.7 ns/op
+BenchmarkIsValidLanguageCode	100000000	        11.2 ns/op
+BenchmarkLangEnglishName		100000000	        12.5 ns/op
+BenchmarkLangNativeName			100000000	        12.1 ns/op
 
-BenchmarkRegionCodeInfo			20000000	        74.6 ns/op
-BenchmarkIsValidRegionCode		20000000	        76.1 ns/op
-BenchmarkRegionName				20000000	        77.0 ns/op
+BenchmarkRegionCodeInfo			200000000	        9.73 ns/op
+BenchmarkIsValidRegionCode		100000000	        10.4 ns/op
+BenchmarkRegionName				100000000	        12.0 ns/op
 ```
 
 ## Stability
