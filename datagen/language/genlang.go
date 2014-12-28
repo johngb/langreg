@@ -63,7 +63,7 @@ import (
   "fmt"
 )
 
-// LangCodeInfo returns the English and native language in it's script for a
+// LangCodeInfo returns the English and native language in its script for a
 // given string, and an error if any.  If there are more than one official
 // names for the language (either English or native), they are separated by a
 // semi-colon (;)
@@ -96,7 +96,7 @@ func LangCodeInfo(s string) (english, native string, err error) {
 	out += `}
 	}
 	return "", "",
-		fmt.Errorf("\"%s\" is not a valid ISO-639-1 language code", s)
+		fmt.Errorf("%q is not a valid ISO-639-1 language code", s)
 }`
 
 	return out, nil

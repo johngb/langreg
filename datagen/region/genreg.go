@@ -61,7 +61,7 @@ import (
 	"fmt"
 )
 
-// RegionCodeInfo returns the English regional name, and ccTLD that
+// RegionCodeInfo returns the English regional name that
 // corresponds to the ISO 3166-1 alpha-2 region codes.
 // Region codes should always be uppercase, and this is enforced.
 // E.g. "US" is valid, but "us" is not.
@@ -93,7 +93,7 @@ func RegionCodeInfo(s string) (region string, err error) {
 	out += `}
 	}
 	return "",
-		fmt.Errorf("\"%s\" is not a valid ISO 3166-1 alpha-2 region code", s)
+		fmt.Errorf("%q is not a valid ISO 3166-1 alpha-2 region code", s)
 }`
 
 	return out, nil
