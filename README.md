@@ -6,6 +6,12 @@ langreg
 
 langreg is a lightweight Go package to handle ISO language and region (sometimes called country) codes. This only uses ISO 639-1 language codes, and ISO 3166-1 alpha-2 region codes.  These are commonly used for language and region settings.  E.g. `en_US`, `en_GB`, `zu_ZA`.
 
+## Installation
+
+```
+go get github.com/johngb/langreg
+```
+
 ## Usage
 
 Language codes must be lowercase, while region codes must be uppercase (blame ISO for that).
