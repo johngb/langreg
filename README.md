@@ -1,3 +1,6 @@
+[![GoDoc](https://godoc.org/github.com/johngb/langreg?status.svg)](https://godoc.org/github.com/johngb/langreg)
+[![wercker status](https://app.wercker.com/status/6774907cc34f2b397f3b29e39948f799/s/master "wercker status")](https://app.wercker.com/project/bykey/6774907cc34f2b397f3b29e39948f799)
+
 langreg
 =====
 
